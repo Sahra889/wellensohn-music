@@ -1,0 +1,3 @@
+Static checks passed: 21 tracks, unique IDs and slugs, valid local artwork files, canonical track URLs, local HTML references and anchors. JavaScript syntax checked with node --check.
+Browser rendering, interaction and SoundCloud audio playback not verified.
+Not deployed.
