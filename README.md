@@ -10,6 +10,12 @@ Fertige statische Website für GitHub Pages. Keine Installation, kein Build, kei
 - SoundCloud-Player werden erst nach dem Klick auf „Auf dieser Seite anhören“ eingebunden. Audio startet nicht automatisch.
 - Kurzer Musikabschnitt auf Basis des öffentlichen Profils und der Veröffentlichungsabfolge. Keine erfundene persönliche Biografie.
 
+## Live-Website
+
+Seit 02.10.2026 veröffentlicht: https://sahra889.github.io/wellensohn-music/
+
+GitHub Pages verwendet Branch `brain`, Ordner `/ (root)`. Änderungen an diesem Branch werden automatisch veröffentlicht.
+
 ## Auf GitHub Pages veröffentlichen
 
 1. Ein neues Repository für diese Website erstellen. Bei GitHub Free ein öffentliches Repository wählen.
@@ -30,6 +36,6 @@ Die neuen Texte sind kreative Deutungen von Cover, Titel und vorhandenen Beschre
 
 ## Prüfung
 
-JavaScript-Syntax, Trackanzahl, eindeutige IDs und Links, vorhandene Bilddateien, lesbare Bildformate und lokale HTML-Referenzen wurden geprüft. Ein ausführbarer Browser war hier nicht verfügbar; Darstellung, Tastaturbedienung und Audio-Wiedergabe sind daher noch nicht praktisch im Browser abgenommen. Die Website ist vorbereitet, aber noch nicht auf GitHub veröffentlicht.
+JavaScript-Syntax, Trackanzahl, eindeutige IDs und Links, vorhandene Bilddateien, lesbare Bildformate und lokale HTML-Referenzen wurden geprüft. Die veröffentlichte Website wurde am 02.10.2026 im Desktop-Browser geprüft: Darstellung, Suche, Jahresfilter, Track-Dialoge, Trackwechsel und Schließen per Escape funktionieren. Der SoundCloud-Player lädt den ausgewählten Track. Audioausgabe und Bedienung auf einem echten Mobilgerät wurden nicht geprüft. GitHub Pages hat die Bereitstellung erfolgreich abgeschlossen.
 
 Externe Verbindung im Besucherbrowser: SoundCloud erst nach aktivem Laden eines Players oder Öffnen eines SoundCloud-Links. Die Cover liegen lokal. Keine Analyse- oder Tracking-Skripte werden von der Website selbst eingebaut.
