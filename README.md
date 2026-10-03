@@ -50,7 +50,7 @@ Weitere Beiträge als eigene HTML-Seite unter `artworks/` ergänzen und in der G
 
 ## Besucherbereiche (03.10.2026)
 
-`ueber.html`: Künstler-Vorstellung, Kontakt über das bestätigte SoundCloud-Profil und Folgen via SoundCloud/RSS. Keine private E-Mail oder unbestätigte Social-Media-Adresse wird veröffentlicht. Für Threads fehlt der bestätigte Profil-Link.
+`ueber.html`: Künstler-Vorstellung, Kontakt über das bestätigte SoundCloud-Profil und Folgen via SoundCloud/RSS. Keine private E-Mail oder unbestätigte Social-Media-Adresse wird veröffentlicht. Threads-Profil am 03.10.2026 vom Nutzer bestätigt: https://www.threads.com/@pack.man. Verlinkt bei Folgen, Kontakt, im Artwork-Kommentarbereich und in allen Fußzeilen. Profil-Links führen nicht zu einem bestimmten Threads-Beitrag; Kommentare werden nicht mit Threads synchronisiert.
 
 `feed.xml` enthält 22 Einträge (21 Tracks und ein Artwork). Nach Änderungen an `tracks.js` oder neuen HTML-Beiträgen in `artworks/` den Feed mit `python3 tools/build-feed.py` neu erzeugen und veröffentlichen. Keine automatische SoundCloud-Synchronisation.
 
