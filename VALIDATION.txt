@@ -1,5 +1,6 @@
 Static checks passed: 21 tracks, unique IDs and slugs, valid local artwork files, canonical track URLs, local HTML references and anchors. JavaScript syntax checked with node --check.
-Deployed successfully on 2026-10-02: https://sahra889.github.io/wellensohn-music/
+Deployed successfully on 2026-10-02: https://wellensohn-packman.github.io/wellensohn-music/
 GitHub Pages: branch brain, root directory. Initial deployment run 37059821543 succeeded.
 Desktop browser checks passed: homepage rendering, search (Empathy -> 1 result), 2025 filter (2 results), track dialog, next track, Escape closing and SoundCloud player loading.
 Audio output and physical mobile-device behavior not verified.
+Account renamed to WellenSohn-PackMan on 2026-10-03. New live URL verified in browser; homepage and 21 track entries rendered.
