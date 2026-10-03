@@ -47,3 +47,13 @@ Externe Verbindung im Besucherbrowser: SoundCloud erst nach aktivem Laden eines 
 Eigenständige Galerie unter `artworks.html`, verlinkt in der Hauptnavigation. Erster Beitrag: `artworks/was-weiterklingt.html` (Was weiterklingt), mit vollständig sichtbarem Bild, freigegebenem Text, Direktlink und Teilen-Funktion mit Kopierfallback. Die Artworks-Seiten funktionieren zum Lesen auch ohne JavaScript. `artworks.css` enthält die Galeriegestaltung und die mobile Navigation. `artworks.js` ergänzt ausschließlich das Teilen. Optimierte Bildvarianten liegen in `assets/artworks/`.
 
 Weitere Beiträge als eigene HTML-Seite unter `artworks/` ergänzen und in der Galerie verlinken; relative Links und Canonical-/Open-Graph-Metadaten anpassen. Musikbestand und Player bleiben unabhängig vom Artwork-Bereich.
+
+## Besucherbereiche (03.10.2026)
+
+`ueber.html`: Künstler-Vorstellung, Kontakt über das bestätigte SoundCloud-Profil und Folgen via SoundCloud/RSS. Keine private E-Mail oder unbestätigte Social-Media-Adresse wird veröffentlicht. Für Threads fehlt der bestätigte Profil-Link.
+
+`feed.xml` enthält 22 Einträge (21 Tracks und ein Artwork). Nach Änderungen an `tracks.js` oder neuen HTML-Beiträgen in `artworks/` den Feed mit `python3 tools/build-feed.py` neu erzeugen und veröffentlichen. Keine automatische SoundCloud-Synchronisation.
+
+Kommentare zu `Was weiterklingt`: Issue #1. Laden erst nach Klick über die öffentliche GitHub-API. Schreiben auf GitHub mit GitHub-Konto. Kommentare werden als Klartext dargestellt, ohne HTML, eingebettete Bilder oder Links. Nach den ersten 30 Kommentaren verweist die Seite auf das vollständige Gespräch. Bei Netzfehlern oder API-Limits bleibt der direkte Link verfügbar. Moderation im GitHub-Repository; keine automatische Vorabfreigabe. Für neue Artworks einen eigenen Diskussionsort konfigurieren.
+
+Prüfung: statische Links/Anker, Track-Verweise, RSS-XML und JavaScript-Syntax. Funktionsprüfungen bestanden: opt-in-Kommentarabruf, sichere Textdarstellung, ausgeblendete Kommentare, leere Antworten, Fehler-/Retryzustände sowie Feed-Kopieren mit manuellem Fallback. Praktische Smartphone-Prüfung weiterhin offen.
