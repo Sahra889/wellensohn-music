@@ -32,11 +32,9 @@ body:has(.music-section) main>.stay-connected{margin:0 auto;padding:50px var(--p
 .comment-actions{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin:26px 0 16px}
 .connection-note{font-size:12px;line-height:1.7;max-width:80ch}
 #comments-status{font-size:15px}#comments-status:empty{display:none}
-.visitor-comment{padding:22px 0;border-bottom:1px solid var(--line)}
-.visitor-comment header{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
-.visitor-comment time{color:var(--muted);font-size:12px}
-.visitor-comment p{white-space:pre-wrap;overflow-wrap:anywhere;color:var(--ink);line-height:1.8}
-#comments-list:not(:empty){margin-bottom:25px}
+.comments-section .utterances{max-width:100%;margin:24px 0}
+#comments-embed{min-width:0;scroll-margin-top:24px}
+#comments-embed[aria-busy="true"]{min-height:160px}
 .related-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:32px}
 .related-card{display:grid;grid-template-columns:110px 1fr;gap:20px;align-items:start;padding:20px;background:var(--surface)}
 .related-card img{width:100%;height:auto}.related-card small{font-size:10px;letter-spacing:1px;color:var(--accent)}
