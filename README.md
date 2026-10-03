@@ -12,7 +12,9 @@ Fertige statische Website für GitHub Pages. Keine Installation, kein Build, kei
 
 ## Live-Website
 
-Seit 02.10.2026 veröffentlicht: https://sahra889.github.io/wellensohn-music/
+Seit 02.10.2026 veröffentlicht: https://wellensohn-packman.github.io/wellensohn-music/
+
+GitHub-Benutzername am 03.10.2026 auf `WellenSohn-PackMan` geändert; die neue Website-Adresse wurde im Browser geprüft.
 
 GitHub Pages verwendet Branch `brain`, Ordner `/ (root)`. Änderungen an diesem Branch werden automatisch veröffentlicht.
 
