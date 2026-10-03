@@ -1,44 +1,55 @@
 'use strict';
 (() => {
+  const section = document.querySelector('[data-comment-issue]');
   const button = document.querySelector('#load-comments');
-  if (!button) return;
   const status = document.querySelector('#comments-status');
-  const list = document.querySelector('#comments-list');
-  const endpoint = 'https://api.github.com/repos/WellenSohn-PackMan/wellensohn-music/issues/1/comments?per_page=30';
-  const date = new Intl.DateTimeFormat('de-DE', { dateStyle: 'medium' });
-  const element = (tag, text) => { const node = document.createElement(tag); if (text !== undefined) node.textContent = text; return node; };
-  button.hidden = false;
-  button.addEventListener('click', async () => {
-    button.disabled = true;
-    status.textContent = 'Kommentare werden geladen …';
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), 10000);
-    try {
-      const response = await fetch(endpoint, { headers: { Accept: 'application/vnd.github+json' }, credentials: 'omit', referrerPolicy: 'no-referrer', signal: controller.signal });
-      if (!response.ok) throw new Error('Comments unavailable');
-      const comments = await response.json();
-      if (!Array.isArray(comments)) throw new Error('Invalid response');
-      const entries = [];
-      for (const comment of comments) {
-        if (comment.minimized || typeof comment.body !== 'string') continue;
-        const article = element('article'); article.className = 'visitor-comment';
-        const header = element('header');
-        header.append(element('strong', comment.user?.login || 'Gast'));
-        const created = new Date(comment.created_at);
-        if (!Number.isNaN(created.getTime())) { const time = element('time', date.format(created)); time.dateTime = created.toISOString(); header.append(time); }
-        // Visitor content stays plain text: never interpret HTML, links or scripts.
-        article.append(header, element('p', comment.body));
-        entries.push(article);
-      }
-      list.replaceChildren(...entries);
-      status.textContent = entries.length ? `${entries.length} ${entries.length === 1 ? 'Kommentar' : 'Kommentare'} angezeigt.${comments.length === 30 ? ' Weitere Antworten findest du im gesamten Gespräch auf GitHub.' : ''}` : 'Noch keine sichtbaren Kommentare. Dein Gedanke kann der erste sein.';
-      button.textContent = 'Kommentare aktualisieren';
-    } catch (_) {
-      status.textContent = 'Die Kommentare konnten gerade nicht geladen werden. Du kannst das Gespräch über den GitHub-Link öffnen.';
-      button.textContent = 'Erneut versuchen';
-    } finally {
-      clearTimeout(timer);
-      button.disabled = false;
-    }
+  const host = document.querySelector('#comments-embed');
+  if (!section || !button || !status || !host) return;
+  const issue = section.dataset.commentIssue;
+  if (!/^[1-9]\d*$/.test(issue || '')) return;
+  let timer;
+  let loading = false;
+  const showRetry = (message) => {
+    clearTimeout(timer);
+    loading = false;
+    host.setAttribute('aria-busy', 'false');
+    status.textContent = message;
+    button.textContent = 'Kommentarfeld erneut laden';
+    button.disabled = false;
+    button.hidden = false;
+  };
+  window.addEventListener('message', (event) => {
+    const frame = host.querySelector('iframe.utterances-frame');
+    if (event.origin !== 'https://utteranc.es' || !frame ||
+        event.source !== frame.contentWindow || event.data?.type !== 'resize' ||
+        typeof event.data.height !== 'number' || event.data.height <= 0) return;
+    clearTimeout(timer);
+    loading = false;
+    frame.title = 'Kommentare zu diesem Artwork';
+    host.setAttribute('aria-busy', 'false');
+    status.textContent = '';
+    button.hidden = true;
   });
+  const load = () => {
+    if (loading) return;
+    loading = true;
+    button.disabled = true;
+    host.setAttribute('aria-busy', 'true');
+    status.textContent = 'Kommentarfeld wird geladen …';
+    host.replaceChildren();
+    const script = document.createElement('script');
+    script.src = 'https://utteranc.es/client.js';
+    script.setAttribute('repo', 'WellenSohn-PackMan/wellensohn-music');
+    script.setAttribute('issue-number', issue);
+    script.setAttribute('theme', 'dark-blue');
+    script.crossOrigin = 'anonymous';
+    script.async = true;
+    script.onerror = () => showRetry('Das Kommentarfeld konnte nicht geladen werden. Du kannst das Gespräch über den GitHub-Link öffnen.');
+    timer = setTimeout(() => showRetry('Das Laden dauert länger als erwartet. Du kannst es erneut versuchen oder das Gespräch auf GitHub öffnen.'), 15000);
+    host.append(script);
+  };
+  button.hidden = false;
+  button.addEventListener('click', load);
+  // Complete only a visitor-initiated OAuth sign-in on return from GitHub.
+  if (new URLSearchParams(window.location.search).has('utterances')) load();
 })();
