@@ -41,3 +41,9 @@ Die neuen Texte sind kreative Deutungen von Cover, Titel und vorhandenen Beschre
 JavaScript-Syntax, Trackanzahl, eindeutige IDs und Links, vorhandene Bilddateien, lesbare Bildformate und lokale HTML-Referenzen wurden geprüft. Die veröffentlichte Website wurde am 02.10.2026 im Desktop-Browser geprüft: Darstellung, Suche, Jahresfilter, Track-Dialoge, Trackwechsel und Schließen per Escape funktionieren. Der SoundCloud-Player lädt den ausgewählten Track. Audioausgabe und Bedienung auf einem echten Mobilgerät wurden nicht geprüft. GitHub Pages hat die Bereitstellung erfolgreich abgeschlossen.
 
 Externe Verbindung im Besucherbrowser: SoundCloud erst nach aktivem Laden eines Players oder Öffnen eines SoundCloud-Links. Die Cover liegen lokal. Keine Analyse- oder Tracking-Skripte werden von der Website selbst eingebaut.
+
+## Artworks (03.10.2026)
+
+Eigenständige Galerie unter `artworks.html`, verlinkt in der Hauptnavigation. Erster Beitrag: `artworks/was-weiterklingt.html` (Was weiterklingt), mit vollständig sichtbarem Bild, freigegebenem Text, Direktlink und Teilen-Funktion mit Kopierfallback. Die Artworks-Seiten funktionieren zum Lesen auch ohne JavaScript. `artworks.css` enthält die Galeriegestaltung und die mobile Navigation. `artworks.js` ergänzt ausschließlich das Teilen. Optimierte Bildvarianten liegen in `assets/artworks/`.
+
+Weitere Beiträge als eigene HTML-Seite unter `artworks/` ergänzen und in der Galerie verlinken; relative Links und Canonical-/Open-Graph-Metadaten anpassen. Musikbestand und Player bleiben unabhängig vom Artwork-Bereich.
